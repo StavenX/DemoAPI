@@ -42,9 +42,9 @@ namespace DemoAPI.Controllers
 
         [HttpPost]
         [Route("api/[controller]/add")]
-        public IActionResult AddScore(Guid playerId, int scoreValue)
+        public IActionResult AddScore(Guid playerId, int scoreValue, DateTime startedPlaying, DateTime endedPlaying)
         {
-            var newScore = _scoreData.AddScore(playerId, scoreValue);
+            var newScore = _scoreData.AddScore(playerId, scoreValue, startedPlaying, endedPlaying);
             return Created(
                 HttpContext.Request.Scheme
                 + "://"
