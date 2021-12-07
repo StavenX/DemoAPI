@@ -31,7 +31,6 @@ namespace DemoAPI
         {
             services.AddControllers();
             services.AddDbContextPool<PlayerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PlayerContextConnectionString")));
-            //services.AddDbContextPool<ScoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PlayerContextConnectionString"));
             
             //services.AddSingleton<IPlayerData, MockPlayerData>();
             //services.AddSingleton<IScoreData, MockScoreData>();
