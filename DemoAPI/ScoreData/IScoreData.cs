@@ -10,7 +10,7 @@ namespace DemoAPI.ScoreData
     {
         List<Score> GetScores();
         Score GetScore(Guid id);
-        Score AddScore(Score score);
+        Score AddScore(Guid playerId, int scoreValue);
         void DeleteScore(Score score);
     }
 }

@@ -44,13 +44,16 @@ namespace DemoAPI.ScoreData
             }
         };
 
-        public Score AddScore(Score score)
+        public Score AddScore(Guid playerId, int scoreValue)
         {
+            var score = new Score();
+
             score.Id = Guid.NewGuid();
-            score.ScoreValue = 0;
+            score.ScoreValue = scoreValue;
             score.StartedPlaying = DateTime.Now;
             score.EndedPlaying = DateTime.Now;
-            score.PlayerId = Guid.NewGuid();
+
+            score.PlayerId = playerId;
 
             scores.Add(score);
 
