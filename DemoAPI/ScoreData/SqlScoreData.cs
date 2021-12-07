@@ -47,5 +47,11 @@ namespace DemoAPI.ScoreData
         {
             return _playerContext.Scores.ToList();
         }
+
+        public List<Score> GetScoresForPlayer(Guid id)
+        {
+            var playerScores = _playerContext.Scores.Where(x => x.PlayerId == id).ToList();
+            return playerScores; 
+        }
     }
 }

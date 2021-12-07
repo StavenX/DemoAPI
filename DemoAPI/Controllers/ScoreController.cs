@@ -27,6 +27,13 @@ namespace DemoAPI.Controllers
         }
 
         [HttpGet]
+        [Route("api/[controller]/player")]
+        public IActionResult GetScoresForPlayer(Guid id)
+        {
+            return Ok(_scoreData.GetScoresForPlayer(id));
+        }
+
+        [HttpGet]
         [Route("api/[controller]/{id}")]
         public IActionResult GetScore(Guid id)
         {

@@ -74,5 +74,10 @@ namespace DemoAPI.ScoreData
         {
             return scores; 
         }
+
+        public List<Score> GetScoresForPlayer(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
