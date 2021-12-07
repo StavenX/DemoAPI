@@ -37,6 +37,7 @@ namespace DemoAPI
             //services.AddSingleton<IScoreData, MockScoreData>();
 
             services.AddScoped<IPlayerData, SqlPlayerData>();
+            services.AddScoped<IScoreData, SqlScoreData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
