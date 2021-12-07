@@ -20,7 +20,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/[controller]")]
+        [Route("api/[controller]/all")]
         public IActionResult GetPlayers()
         {
             return Ok(_playerData.GetPlayers());
@@ -53,7 +53,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("api/[controller]/{id}")]
+        [Route("api/[controller]/delete/{id}")]
         public IActionResult DeleteEmployee(Guid id)
         {
             var player = _playerData.GetPlayer(id);
@@ -68,7 +68,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpPatch]
-        [Route("api/[controller]/{id}")]
+        [Route("api/[controller]/edit/{id}")]
         public IActionResult EditEmployee(Guid id, Player player)
         {
             var existingPlayer = _playerData.GetPlayer(id);
