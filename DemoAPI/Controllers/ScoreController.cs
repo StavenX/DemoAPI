@@ -1,4 +1,5 @@
-﻿using DemoAPI.ScoreData;
+﻿using DemoAPI.Models;
+using DemoAPI.ScoreData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -37,6 +38,19 @@ namespace DemoAPI.Controllers
             }
 
             return NotFound($"Score with Id: {id} was not found.");
+        }
+
+        [HttpPost]
+        [Route("api/[controller]/add")]
+        public IActionResult AddScore(Score score)
+        {
+            _scoreData.AddScore(score);
+            return Created(
+                HttpContext.Request.Scheme
+                + "://"
+                + HttpContext.Request.Host
+                + HttpContext.Request.Path
+                + "/" + score.Id, score);
         }
     }
 }
