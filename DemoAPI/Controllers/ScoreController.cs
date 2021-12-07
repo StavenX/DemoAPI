@@ -52,5 +52,20 @@ namespace DemoAPI.Controllers
                 + HttpContext.Request.Path
                 + "/" + score.Id, score);
         }
+
+        [HttpDelete]
+        [Route("api/[controller]/delete/{id}")]
+        public IActionResult DeleteScore(Guid id)
+        {
+            var score = _scoreData.GetScore(id);
+
+            if (score != null)
+            {
+                _scoreData.DeleteScore(score);
+                return Ok();
+            }
+
+            return NotFound($"Score with Id: {id} was not found.");
+        }
     }
 }
