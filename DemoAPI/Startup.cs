@@ -1,5 +1,6 @@
 using DemoAPI.Models;
 using DemoAPI.PlayerData;
+using DemoAPI.ScoreData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,7 +31,10 @@ namespace DemoAPI
         {
             services.AddControllers();
             services.AddDbContextPool<PlayerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PlayerContextConnectionString")));
+            
             //services.AddSingleton<IPlayerData, MockPlayerData>();
+            services.AddSingleton<IScoreData, MockScoreData>();
+
             services.AddScoped<IPlayerData, SqlPlayerData>();
         }
 
