@@ -10,10 +10,10 @@ namespace DemoAPI.Models
     {
         public PlayerContext(DbContextOptions<PlayerContext> options): base(options)
         {
-
         }
 
         // acts as the table (dbset)
         public DbSet<Player> Players { get; set; }
+        public DbSet<Score> Scores { get; set; }
     }
 }

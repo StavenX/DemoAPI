@@ -34,6 +34,29 @@ namespace DemoAPI.Migrations
 
                     b.ToTable("Players");
                 });
+
+            modelBuilder.Entity("DemoAPI.Models.Score", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("EndedPlaying")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ScoreValue")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartedPlaying")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Scores");
+                });
 #pragma warning restore 612, 618
         }
     }
