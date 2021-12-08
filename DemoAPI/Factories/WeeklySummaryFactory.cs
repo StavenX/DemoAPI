@@ -14,7 +14,7 @@ namespace DemoAPI.Factories
         private IPlayerData _playerData;
         private IScoreData _scoreData;
 
-        private int WeeklyReportAmount = 10; 
+        private readonly int WeeklyReportAmount = 10; 
 
         public WeeklySummaryFactory(IPlayerData playerData, IScoreData scoreData)
         {
