@@ -1,6 +1,7 @@
 using DemoAPI.Models;
 using DemoAPI.PlayerData;
 using DemoAPI.ScoreData;
+using DemoAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +38,7 @@ namespace DemoAPI
 
             services.AddScoped<IPlayerData, SqlPlayerData>();
             services.AddScoped<IScoreData, SqlScoreData>();
+            services.AddScoped<IImpactReportFactory, ImpactReportFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
