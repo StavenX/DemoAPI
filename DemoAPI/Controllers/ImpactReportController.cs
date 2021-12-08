@@ -14,6 +14,7 @@ namespace DemoAPI.Controllers
     public class ImpactReportController : ControllerBase
     {
         private IImpactReportFactory _impactReportFactory;
+
         public ImpactReportController(IImpactReportFactory impactReportFactory)
         {
             _impactReportFactory = impactReportFactory;

@@ -19,6 +19,16 @@ namespace DemoAPI.Controllers
             _scoreData = scoreData;
         }
 
+
+        [HttpPost]
+        [Route("api/[controller]/test")]
+        public IActionResult AddScore()
+        {
+            var newScore = _scoreData.AddScore(Guid.Parse("a0760fdf-8306-4dea-86c6-86c4c4af5743"), 493, DateTime.Now, DateTime.Now.AddMinutes(3));
+
+            return Ok(newScore);
+        }
+
         [HttpGet]
         [Route("api/[controller]/all")]
         public IActionResult GetScores()

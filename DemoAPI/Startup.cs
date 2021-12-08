@@ -1,3 +1,4 @@
+using DemoAPI.Factories;
 using DemoAPI.Models;
 using DemoAPI.PlayerData;
 using DemoAPI.ScoreData;
@@ -33,12 +34,17 @@ namespace DemoAPI
             services.AddControllers();
             services.AddDbContextPool<PlayerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PlayerContextConnectionString")));
             
+            /* Mock data setup */
             //services.AddSingleton<IPlayerData, MockPlayerData>();
             //services.AddSingleton<IScoreData, MockScoreData>();
 
+            /* Data setup */
             services.AddScoped<IPlayerData, SqlPlayerData>();
             services.AddScoped<IScoreData, SqlScoreData>();
+
+            /* Factory setup */
             services.AddScoped<IImpactReportFactory, ImpactReportFactory>();
+            services.AddScoped<IWeeklySummaryFactory, WeeklySummaryFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

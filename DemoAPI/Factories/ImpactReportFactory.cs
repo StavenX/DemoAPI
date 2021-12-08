@@ -1,4 +1,5 @@
-﻿using DemoAPI.Models;
+﻿using DemoAPI.Extensions;
+using DemoAPI.Models;
 using DemoAPI.PlayerData;
 using DemoAPI.ScoreData;
 using System;
@@ -39,7 +40,7 @@ namespace DemoAPI.Services
             var playerScores = _scoreData.GetScoresForPlayer(playerId);
 
             var totalScoreSum = playerScores.Sum(x => x.ScoreValue);
-            var totalPlaythroughMinutes = playerScores.Sum(x => (x.EndedPlaying - x.StartedPlaying).TotalMinutes);
+            var totalPlaythroughMinutes = playerScores.Sum(x => (x.GetDurationMinutes()));
             var totalPlaythroughs = playerScores.Count;
 
             var impactReport = new ImpactReport()
