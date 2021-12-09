@@ -1,4 +1,5 @@
-﻿using DemoAPI.PlayerData;
+﻿using DemoAPI.Contracts;
+using DemoAPI.PlayerData;
 using DemoAPI.ScoreData;
 using DemoAPI.Services;
 using Microsoft.AspNetCore.Http;
@@ -21,7 +22,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/[controller]/reports")]
+        [Route(ApiRoutes.ImpactReports.GetImpacts)]
         public IActionResult GetImpactReports()
         {
             return Ok(_impactReportFactory.GetAllImpactReports());

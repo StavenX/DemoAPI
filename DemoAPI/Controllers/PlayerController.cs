@@ -28,7 +28,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpGet]
-        [Route(ApiRoutes.Players.GetPlayer)]
+        [Route(ApiRoutes.Players.Get)]
         public IActionResult GetPlayer(Guid id)
         {
             var player = _playerData.GetPlayer(id);
@@ -41,7 +41,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpPost]
-        [Route(ApiRoutes.Players.AddPlayer)]
+        [Route(ApiRoutes.Players.Add)]
         public IActionResult AddPlayer(Player player)
         {
             _playerData.AddPlayer(player);
@@ -54,7 +54,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpDelete]
-        [Route(ApiRoutes.Players.DeletePlayer)]
+        [Route(ApiRoutes.Players.Delete)]
         public IActionResult DeletePlayer(Guid id)
         {
             var player = _playerData.GetPlayer(id);
@@ -69,7 +69,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpPatch]
-        [Route(ApiRoutes.Players.EditPlayer)]
+        [Route(ApiRoutes.Players.Edit)]
         public IActionResult EditPlayer(Guid id, Player player)
         {
             var existingPlayer = _playerData.GetPlayer(id);

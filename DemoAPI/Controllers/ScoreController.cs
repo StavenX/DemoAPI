@@ -1,4 +1,5 @@
-﻿using DemoAPI.Models;
+﻿using DemoAPI.Contracts;
+using DemoAPI.Models;
 using DemoAPI.ScoreData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,32 +20,22 @@ namespace DemoAPI.Controllers
             _scoreData = scoreData;
         }
 
-
-        [HttpPost]
-        [Route("api/[controller]/test")]
-        public IActionResult AddScore()
-        {
-            var newScore = _scoreData.AddScore(Guid.Parse("a0760fdf-8306-4dea-86c6-86c4c4af5743"), 493, DateTime.Now, DateTime.Now.AddMinutes(3));
-
-            return Ok(newScore);
-        }
-
         [HttpGet]
-        [Route("api/[controller]/all")]
+        [Route(ApiRoutes.Scores.GetAll)]
         public IActionResult GetScores()
         {
             return Ok(_scoreData.GetScores());
         }
 
         [HttpGet]
-        [Route("api/[controller]/player")]
+        [Route(ApiRoutes.Scores.GetForPlayer)]
         public IActionResult GetScoresForPlayer(Guid id)
         {
             return Ok(_scoreData.GetScoresForPlayer(id));
         }
 
         [HttpGet]
-        [Route("api/[controller]/{id}")]
+        [Route(ApiRoutes.Scores.Get)]
         public IActionResult GetScore(Guid id)
         {
             var score = _scoreData.GetScore(id);
@@ -58,7 +49,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]/add")]
+        [Route(ApiRoutes.Scores.Add)]
         public IActionResult AddScore(Guid playerId, int scoreValue, DateTime startedPlaying, DateTime endedPlaying)
         {
             var newScore = _scoreData.AddScore(playerId, scoreValue, startedPlaying, endedPlaying);
@@ -71,7 +62,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("api/[controller]/delete/{id}")]
+        [Route(ApiRoutes.Scores.Delete)]
         public IActionResult DeleteScore(Guid id)
         {
             var score = _scoreData.GetScore(id);

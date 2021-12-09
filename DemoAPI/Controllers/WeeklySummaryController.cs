@@ -1,4 +1,5 @@
-﻿using DemoAPI.Factories;
+﻿using DemoAPI.Contracts;
+using DemoAPI.Factories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,7 +20,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/[controller]/{weekNumber}")]
+        [Route(ApiRoutes.WeeklySummaries.GetWeeklies)]
         public IActionResult GetWeeklySummaries(int weekNumber)
         {
             return Ok(_weeklySummaryFactory.GetWeeklySummaries(weekNumber));
