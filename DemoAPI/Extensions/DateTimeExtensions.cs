@@ -34,9 +34,9 @@ namespace DemoAPI.Extensions
             var endDay = beginningDay.AddDays(7);
 
             var isAfterMonday = startTime >= beginningDay;
-            var isBeforeSunday = endTime < endDay; 
+            var isWithinSunday = endTime < endDay; 
 
-            if (isAfterMonday && isBeforeSunday)
+            if (isAfterMonday && isWithinSunday)
             {
                 return true; 
             }
