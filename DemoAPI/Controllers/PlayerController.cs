@@ -1,4 +1,5 @@
-﻿using DemoAPI.Models;
+﻿using DemoAPI.Contracts;
+using DemoAPI.Models;
 using DemoAPI.PlayerData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,14 +21,14 @@ namespace DemoAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/[controller]/all")]
+        [Route(ApiRoutes.Players.GetAll)]
         public IActionResult GetPlayers()
         {
             return Ok(_playerData.GetPlayers());
         }
 
         [HttpGet]
-        [Route("api/[controller]/{id}")]
+        [Route(ApiRoutes.Players.GetPlayer)]
         public IActionResult GetPlayer(Guid id)
         {
             var player = _playerData.GetPlayer(id);
@@ -40,7 +41,7 @@ namespace DemoAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/[controller]/add")]
+        [Route(ApiRoutes.Players.AddPlayer)]
         public IActionResult AddPlayer(Player player)
         {
             _playerData.AddPlayer(player);
@@ -53,8 +54,8 @@ namespace DemoAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("api/[controller]/delete/{id}")]
-        public IActionResult DeleteEmployee(Guid id)
+        [Route(ApiRoutes.Players.DeletePlayer)]
+        public IActionResult DeletePlayer(Guid id)
         {
             var player = _playerData.GetPlayer(id);
 
@@ -68,8 +69,8 @@ namespace DemoAPI.Controllers
         }
 
         [HttpPatch]
-        [Route("api/[controller]/edit/{id}")]
-        public IActionResult EditEmployee(Guid id, Player player)
+        [Route(ApiRoutes.Players.EditPlayer)]
+        public IActionResult EditPlayer(Guid id, Player player)
         {
             var existingPlayer = _playerData.GetPlayer(id);
 
