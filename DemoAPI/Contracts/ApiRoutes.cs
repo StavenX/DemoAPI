@@ -15,5 +15,10 @@ namespace DemoAPI.Contracts
             public const string DeletePlayer = "api/player/delete/{id}";
             public const string EditPlayer   = "api/player/edit/{id}";
         }
+
+        public static class Scores
+        {
+
+        }
     }
 }
