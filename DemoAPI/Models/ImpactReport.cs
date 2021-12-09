@@ -9,7 +9,7 @@ namespace DemoAPI.Models
     {
         public Guid PlayerId { get; set; }
         public string PlayerName { get; set; }
-        public double AmountPlayedMinutes { get; set; }
+        public double AmountPlayedSeconds { get; set; }
         public int Playthroughs { get; set; }
         public int TotalScore { get; set; }
     }

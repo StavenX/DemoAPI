@@ -38,7 +38,7 @@ namespace DemoAPI.Factories
                 {
                     PlayerName = _playerData.GetPlayer(score.PlayerId).Name,
                     HighestScore = score.ScoreValue,
-                    HighestDuration = score.GetDurationMinutes()
+                    HighestDurationSeconds = score.GetDurationSeconds()
                 };
 
                 weeklySummaries.Add(summary);

@@ -40,7 +40,7 @@ namespace DemoAPI.Services
             var playerScores = _scoreData.GetScoresForPlayer(playerId);
 
             var totalScoreSum = playerScores.Sum(x => x.ScoreValue);
-            var totalPlaythroughMinutes = playerScores.Sum(x => (x.GetDurationMinutes()));
+            var totalPlaythroughSeconds = playerScores.Sum(x => (x.GetDurationSeconds()));
             var totalPlaythroughs = playerScores.Count;
 
             var impactReport = new ImpactReport()
@@ -48,7 +48,7 @@ namespace DemoAPI.Services
                 PlayerId = playerId,
                 PlayerName = player.Name,
                 TotalScore = totalScoreSum,
-                AmountPlayedMinutes = totalPlaythroughMinutes,
+                AmountPlayedSeconds = totalPlaythroughSeconds,
                 Playthroughs = totalPlaythroughs
             };
 
