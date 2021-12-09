@@ -10,14 +10,14 @@ namespace DemoAPI.Extensions
         public static DateTime GetFirstMondayOfYear()
         {
             var currentYear = DateTime.Now.Year;
-            DateTime firstWeek = new DateTime(currentYear, 1, 1);
+            DateTime firstMonday = new DateTime(currentYear, 1, 1);
 
-            while (firstWeek.DayOfWeek != DayOfWeek.Monday)
+            while (firstMonday.DayOfWeek != DayOfWeek.Monday)
             {
-                firstWeek = firstWeek.AddDays(1);
+                firstMonday = firstMonday.AddDays(1);
             }
 
-            return firstWeek; 
+            return firstMonday; 
         }
 
         public static DateTime GetFirstMondayOfWeek(int weekNumber)
