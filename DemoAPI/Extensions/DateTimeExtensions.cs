@@ -31,10 +31,10 @@ namespace DemoAPI.Extensions
         public static bool IsWithinWeekNumber(DateTime startTime, DateTime endTime, int weekNumber)
         {
             var beginningDay = GetFirstMondayOfWeek(weekNumber);
-            var endDay = beginningDay.AddDays(6);
+            var endDay = beginningDay.AddDays(7);
 
             var isAfterMonday = startTime >= beginningDay;
-            var isBeforeSunday = endTime <= endDay; 
+            var isBeforeSunday = endTime < endDay; 
 
             if (isAfterMonday && isBeforeSunday)
             {
