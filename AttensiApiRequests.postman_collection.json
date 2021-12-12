@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "a519ab40-0022-4b83-adcd-869ea29c7d36",
+		"name": "AttensiApiRequests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/players",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"players"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/players?name=Tobias",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"players"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Tobias"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Player",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/players/659b01b0-ab36-4952-bb34-1ee07ca3e27c",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"players",
+						"659b01b0-ab36-4952-bb34-1ee07ca3e27c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Player",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44381/api/players/4b7dfd59-2acf-401c-b2ac-1e2769a33523",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"players",
+						"4b7dfd59-2acf-401c-b2ac-1e2769a33523"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Player",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ggg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44381/api/players/13f29a34-6e5d-45ca-b3b8-50987a11e4f8",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"players",
+						"13f29a34-6e5d-45ca-b3b8-50987a11e4f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Score",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/scores?playerId=82e6ef39-ffd4-4d7b-b81e-cb9038010db3&scoreValue=54&startedPlaying=2021-01-05T01:00:00&endedPlaying=2021-01-05T01:05:08",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"scores"
+					],
+					"query": [
+						{
+							"key": "playerId",
+							"value": "82e6ef39-ffd4-4d7b-b81e-cb9038010db3"
+						},
+						{
+							"key": "scoreValue",
+							"value": "54"
+						},
+						{
+							"key": "startedPlaying",
+							"value": "2021-01-05T01:00:00"
+						},
+						{
+							"key": "endedPlaying",
+							"value": "2021-01-05T01:05:08"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Scores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/scores",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"scores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Score",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/scores/18eba76a-4962-4e79-829f-298920af2328",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"scores",
+						"18eba76a-4962-4e79-829f-298920af2328"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weekly Summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/weeklysummary/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"weeklysummary",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Score For Player",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/scores/player/?id=82e6ef39-ffd4-4d7b-b81e-cb9038010db3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"scores",
+						"player",
+						""
+					],
+					"query": [
+						{
+							"key": null,
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "82e6ef39-ffd4-4d7b-b81e-cb9038010db3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Impact Reports",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/reports",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"reports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Test Score",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/score/test",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"score",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Score",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44381/api/scores/b9931ea3-4af8-4015-8fca-2ea6d9eaccbb",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44381",
+					"path": [
+						"api",
+						"scores",
+						"b9931ea3-4af8-4015-8fca-2ea6d9eaccbb"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "b9931ea3-4af8-4015-8fca-2ea6d9eaccbb",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
