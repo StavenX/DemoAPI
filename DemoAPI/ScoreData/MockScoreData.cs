@@ -45,14 +45,14 @@ namespace DemoAPI.ScoreData
 
         public Score AddScore(Guid playerId, int scoreValue, DateTime startedPlaying, DateTime endedPlaying)
         {
-            var score = new Score();
-
-            score.Id = Guid.NewGuid();
-            score.ScoreValue = scoreValue;
-            score.StartedPlaying = startedPlaying;
-            score.EndedPlaying = endedPlaying;
-
-            score.PlayerId = playerId;
+            var score = new Score
+            {
+                Id = Guid.NewGuid(),
+                ScoreValue = scoreValue,
+                StartedPlaying = startedPlaying,
+                EndedPlaying = endedPlaying,
+                PlayerId = playerId
+            };
 
             scores.Add(score);
 
