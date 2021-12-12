@@ -42,7 +42,6 @@ namespace DemoAPI.PlayerData
 
         public Player GetPlayer(Guid id)
         {
-            //return _playerContext.Players.SingleOrDefault(x => x.Id == id);
             var player = _playerContext.Players.Find(id);
             return player;
         }
