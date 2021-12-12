@@ -2,7 +2,7 @@
 
 namespace DemoAPI.Extensions
 {
-    public static class DateTimeExtensions
+    public static class DateTimeHelpers
     {
         public static DateTime GetFirstMondayOfYear()
         {

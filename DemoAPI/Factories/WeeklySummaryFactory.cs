@@ -25,10 +25,9 @@ namespace DemoAPI.Factories
             List<WeeklySummary> weeklySummaries = new List<WeeklySummary>();
 
             var weeklyScores = _scoreData.GetScores().Where(x => x.IsWithinWeekNumber(weekNumber));
-            weeklyScores = weeklyScores.OrderByDescending(s => s.ScoreValue); // sort by score??
+            weeklyScores = weeklyScores.OrderByDescending(x => x.ScoreValue); // sort by score??
 
-            // calculate duration too ?
-            var uniqueScoresByPlayer = weeklyScores.DistinctBy(s => s.PlayerId);
+            var uniqueScoresByPlayer = weeklyScores.DistinctBy(x => x.PlayerId);
 
             foreach (var score in uniqueScoresByPlayer)
             {
@@ -42,7 +41,7 @@ namespace DemoAPI.Factories
                 weeklySummaries.Add(summary);
             }
 
-            return weeklySummaries.OrderByDescending(s => s.HighestScore)
+            return weeklySummaries.OrderByDescending(x => x.HighestScore)
                 .Take(WeeklyReportAmount)
                 .ToList();
         }

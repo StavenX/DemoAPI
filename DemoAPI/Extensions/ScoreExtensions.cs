@@ -16,7 +16,7 @@ namespace DemoAPI.Extensions
 
         public static bool IsWithinWeekNumber(this Score score, int weekNumber)
         {
-            return DateTimeExtensions.IsWithinWeekNumber(score.StartedPlaying, score.EndedPlaying, weekNumber);
+            return DateTimeHelpers.IsWithinWeekNumber(score.StartedPlaying, score.EndedPlaying, weekNumber);
         }
     }
 }
