@@ -34,7 +34,5 @@ namespace DemoAPI.Tests
 
             Assert.Equal(date, result);
         }
-
-
     }
 }
