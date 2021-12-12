@@ -58,6 +58,13 @@ namespace DemoAPI.Services
             if (firstScore != null) impactReport.FirstScore = firstScore.ScoreValue;
             if (bestScore != null) impactReport.BestScore = bestScore.ScoreValue;
 
+            if (impactReport.FirstScore != 0 && impactReport.BestScore != 0)
+            {
+                var change = bestScore.ScoreValue - firstScore.ScoreValue;
+                var improvedPercentage = ((double)change / firstScore.ScoreValue) * 100;
+                impactReport.ImprovedPercentage = improvedPercentage;
+            }
+
             return impactReport;
         }
     }
