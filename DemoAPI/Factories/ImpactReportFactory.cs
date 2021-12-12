@@ -61,6 +61,7 @@ namespace DemoAPI.Services
 
                 var change = bestScore.ScoreValue - firstScore.ScoreValue;
                 var improvedPercentage = ((double)change / firstScore.ScoreValue) * 100;
+
                 impactReport.ImprovedPercentage = improvedPercentage;
             }
 
