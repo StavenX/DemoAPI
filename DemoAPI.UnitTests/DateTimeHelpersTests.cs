@@ -2,7 +2,7 @@ using DemoAPI.Helpers;
 using System;
 using Xunit;
 
-namespace DemoAPI.UnitTests
+namespace DemoAPI.Tests
 {
     public class DateTimeHelpersTests
     {

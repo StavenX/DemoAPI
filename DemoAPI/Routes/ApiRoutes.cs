@@ -9,30 +9,30 @@ namespace DemoAPI.Routes
     {
         public static class Players
         {
-            public const string GetAll       = "api/player/all";
-            public const string Get          = "api/player/{id}";
-            public const string Add          = "api/player/add";
-            public const string Delete       = "api/player/delete/{id}";
-            public const string Edit         = "api/player/edit/{id}";
+            public const string GetAll       = "api/players";
+            public const string Get          = "api/players/{id}";
+            public const string Add          = "api/players";
+            public const string Delete       = "api/players/{id}";
+            public const string Edit         = "api/players/{id}";
         }
 
         public static class Scores
         {
-            public const string GetAll       = "api/score/all";
-            public const string Get          = "api/score/{id}";
-            public const string Add          = "api/score/add";
-            public const string Delete       = "api/score/delete/{id}";
-            public const string GetForPlayer = "api/score/player";
+            public const string GetAll       = "api/scores";
+            public const string Get          = "api/scores/{id}";
+            public const string Add          = "api/scores";
+            public const string Delete       = "api/scores/{id}";
+            public const string GetForPlayer = "api/scores/player";
         }
 
         public static class WeeklySummaries
         {
-            public const string GetWeeklies  = "api/weeklysummary/{weekNumber}";
+            public const string GetWeeklies  = "api/weeklyreports/{weekNumber}";
         }
 
         public static class ImpactReports
         {
-            public const string GetImpacts   = "api/impactreport/reports";
+            public const string GetImpacts   = "api/impactreports";
         }
     }
 }

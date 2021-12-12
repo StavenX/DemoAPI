@@ -10,25 +10,25 @@ namespace DemoAPI.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
-        private IPlayerRepository _playerData; 
+        private IPlayerRepository _playerRepository; 
 
-        public PlayerController(IPlayerRepository playerData)
+        public PlayerController(IPlayerRepository playerRepository)
         {
-            _playerData = playerData;
+            _playerRepository = playerRepository;
         }
 
         [HttpGet]
         [Route(ApiRoutes.Players.GetAll)]
         public IActionResult GetPlayers()
         {
-            return Ok(_playerData.GetPlayers());
+            return Ok(_playerRepository.GetPlayers());
         }
 
         [HttpGet]
         [Route(ApiRoutes.Players.Get)]
         public IActionResult GetPlayer(Guid id)
         {
-            var player = _playerData.GetPlayer(id);
+            var player = _playerRepository.GetPlayer(id);
 
             if (player != null) {
                 return Ok(player);
@@ -39,26 +39,32 @@ namespace DemoAPI.Controllers
 
         [HttpPost]
         [Route(ApiRoutes.Players.Add)]
-        public IActionResult AddPlayer(Player player)
+        public IActionResult AddPlayer(string name)
         {
-            _playerData.AddPlayer(player);
+            var newPlayer = new Player()
+            {
+                Id = Guid.NewGuid(),
+                Name = name
+            };
+
+            _playerRepository.AddPlayer(newPlayer);
             return Created(
                 HttpContext.Request.Scheme
                 + "://" 
                 + HttpContext.Request.Host 
                 + HttpContext.Request.Path 
-                + "/" + player.Id, player);
+                + "/" + newPlayer.Id, newPlayer);
         }
 
         [HttpDelete]
         [Route(ApiRoutes.Players.Delete)]
         public IActionResult DeletePlayer(Guid id)
         {
-            var player = _playerData.GetPlayer(id);
+            var player = _playerRepository.GetPlayer(id);
 
             if (player != null)
             {
-                _playerData.DeletePlayer(player);
+                _playerRepository.DeletePlayer(player);
                 return Ok();
             }
 
@@ -69,12 +75,12 @@ namespace DemoAPI.Controllers
         [Route(ApiRoutes.Players.Edit)]
         public IActionResult EditPlayer(Guid id, Player player)
         {
-            var existingPlayer = _playerData.GetPlayer(id);
+            var existingPlayer = _playerRepository.GetPlayer(id);
 
             if (existingPlayer != null)
             {
                 player.Id = existingPlayer.Id;
-                _playerData.EditPlayer(player);
+                _playerRepository.EditPlayer(player);
             }
 
             return Ok(player);
