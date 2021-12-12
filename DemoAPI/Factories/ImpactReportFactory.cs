@@ -1,7 +1,6 @@
 ﻿using DemoAPI.Extensions;
 using DemoAPI.Models;
 using DemoAPI.Repositories;
-using DemoAPI.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +9,21 @@ namespace DemoAPI.Factories
 {
     public class ImpactReportFactory : IImpactReportFactory
     {
-        private IScoreRepository _scoreData;
-        private IPlayerRepository _playerData;
+        private IPlayerRepository _playerRepository;
+        private IScoreRepository _scoreRepository;
+        
 
-        public ImpactReportFactory(IPlayerRepository playerData, IScoreRepository scoreData)
+        public ImpactReportFactory(IPlayerRepository playerRepository, IScoreRepository scoreRepository)
         {
-            _scoreData = scoreData;
-            _playerData = playerData;
+            _playerRepository = playerRepository;
+            _scoreRepository = scoreRepository;
         }
 
         public List<ImpactReport> GetAllImpactReports()
         {
             List<ImpactReport> reports = new List<ImpactReport>();
 
-            var players = _playerData.GetPlayers();
+            var players = _playerRepository.GetPlayers();
 
             foreach (var player in players)
             {
@@ -35,9 +35,9 @@ namespace DemoAPI.Factories
 
         public ImpactReport GetImpactReportForPlayer(Guid playerId)
         {
-            var player = _playerData.GetPlayer(playerId);
+            var player = _playerRepository.GetPlayer(playerId);
 
-            var playerScores = _scoreData.GetScoresForPlayer(playerId);
+            var playerScores = _scoreRepository.GetScoresForPlayer(playerId);
             var totalScoreSum = playerScores.Sum(x => x.ScoreValue);
             var totalPlaythroughSeconds = playerScores.Sum(x => (x.GetDurationSeconds()));
             var totalPlaythroughs = playerScores.Count;

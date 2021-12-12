@@ -9,32 +9,32 @@ namespace DemoAPI.Controllers
     [ApiController]
     public class ScoreController : ControllerBase
     {
-        private IScoreRepository _scoreData;
+        private IScoreRepository _scoreRepository;
 
-        public ScoreController(IScoreRepository scoreData)
+        public ScoreController(IScoreRepository scoreRepository)
         {
-            _scoreData = scoreData;
+            _scoreRepository = scoreRepository;
         }
 
         [HttpGet]
         [Route(ApiRoutes.Scores.GetAll)]
         public IActionResult GetScores()
         {
-            return Ok(_scoreData.GetScores());
+            return Ok(_scoreRepository.GetScores());
         }
 
         [HttpGet]
         [Route(ApiRoutes.Scores.GetForPlayer)]
         public IActionResult GetScoresForPlayer(Guid id)
         {
-            return Ok(_scoreData.GetScoresForPlayer(id));
+            return Ok(_scoreRepository.GetScoresForPlayer(id));
         }
 
         [HttpGet]
         [Route(ApiRoutes.Scores.Get)]
         public IActionResult GetScore(Guid id)
         {
-            var score = _scoreData.GetScore(id);
+            var score = _scoreRepository.GetScore(id);
 
             if (score != null)
             {
@@ -48,7 +48,7 @@ namespace DemoAPI.Controllers
         [Route(ApiRoutes.Scores.Add)]
         public IActionResult AddScore(Guid playerId, int scoreValue, DateTime startedPlaying, DateTime endedPlaying)
         {
-            var newScore = _scoreData.AddScore(playerId, scoreValue, startedPlaying, endedPlaying);
+            var newScore = _scoreRepository.AddScore(playerId, scoreValue, startedPlaying, endedPlaying);
             return Created(
                 HttpContext.Request.Scheme
                 + "://"
@@ -61,11 +61,11 @@ namespace DemoAPI.Controllers
         [Route(ApiRoutes.Scores.Delete)]
         public IActionResult DeleteScore(Guid id)
         {
-            var score = _scoreData.GetScore(id);
+            var score = _scoreRepository.GetScore(id);
 
             if (score != null)
             {
-                _scoreData.DeleteScore(score);
+                _scoreRepository.DeleteScore(score);
                 return Ok();
             }
 

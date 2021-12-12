@@ -27,12 +27,12 @@ namespace DemoAPI.Routes
 
         public static class WeeklySummaries
         {
-            public const string GetWeeklies  = "api/weeklyreports/{weekNumber}";
+            public const string GetWeeklies  = "api/weeklysummary/{weekNumber}";
         }
 
         public static class ImpactReports
         {
-            public const string GetImpacts   = "api/impactreports";
+            public const string GetImpacts   = "api/reports";
         }
     }
 }

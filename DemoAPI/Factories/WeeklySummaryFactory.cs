@@ -9,22 +9,22 @@ namespace DemoAPI.Factories
 {
     public class WeeklySummaryFactory : IWeeklySummaryFactory
     {
-        private IPlayerRepository _playerData;
-        private IScoreRepository _scoreData;
+        private IPlayerRepository _playerRepository;
+        private IScoreRepository _scoreRepository;
 
         private readonly int WeeklyReportAmount = 10; 
 
-        public WeeklySummaryFactory(IPlayerRepository playerData, IScoreRepository scoreData)
+        public WeeklySummaryFactory(IPlayerRepository playerRepository, IScoreRepository scoreRepository)
         {
-            _playerData = playerData;
-            _scoreData = scoreData; 
+            _playerRepository = playerRepository;
+            _scoreRepository = scoreRepository; 
         }
 
         public List<WeeklySummary> GetWeeklySummaries(int weekNumber)
         {
             List<WeeklySummary> weeklySummaries = new List<WeeklySummary>();
 
-            var weeklyScores = _scoreData.GetScores().Where(x => x.IsWithinWeekNumber(weekNumber));
+            var weeklyScores = _scoreRepository.GetScores().Where(x => x.IsWithinWeekNumber(weekNumber));
             weeklyScores = weeklyScores.OrderByDescending(x => x.ScoreValue); // sort by score??
 
             var uniqueScoresByPlayer = weeklyScores.DistinctBy(x => x.PlayerId);
@@ -33,7 +33,7 @@ namespace DemoAPI.Factories
             {
                 WeeklySummary summary = new WeeklySummary()
                 {
-                    PlayerName = _playerData.GetPlayer(score.PlayerId).Name,
+                    PlayerName = _playerRepository.GetPlayer(score.PlayerId).Name,
                     HighestScore = score.ScoreValue,
                     HighestDurationSeconds = score.GetDurationSeconds()
                 };
