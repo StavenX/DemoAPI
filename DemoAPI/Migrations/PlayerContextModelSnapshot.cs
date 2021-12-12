@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DemoAPI.Migrations
 {
-    [DbContext(typeof(PlayerContext))]
+    [DbContext(typeof(ApiContext))]
     partial class PlayerContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

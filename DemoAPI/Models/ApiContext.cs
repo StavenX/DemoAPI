@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace DemoAPI.Models
 {
-    public class PlayerContext : DbContext
+    public class ApiContext : DbContext
     {
-        public PlayerContext(DbContextOptions<PlayerContext> options): base(options)
+        public ApiContext(DbContextOptions<ApiContext> options): base(options)
         {
         }
-
-        // acts as the table (dbset)
         public DbSet<Player> Players { get; set; }
         public DbSet<Score> Scores { get; set; }
     }

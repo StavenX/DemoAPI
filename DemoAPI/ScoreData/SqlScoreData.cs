@@ -8,9 +8,9 @@ namespace DemoAPI.ScoreData
 {
     public class SqlScoreData : IScoreData
     {
-        private PlayerContext _playerContext;
+        private ApiContext _playerContext;
 
-        public SqlScoreData(PlayerContext playerContext)
+        public SqlScoreData(ApiContext playerContext)
         {
             _playerContext = playerContext;
         }

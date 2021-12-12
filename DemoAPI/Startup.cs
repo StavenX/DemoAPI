@@ -32,7 +32,7 @@ namespace DemoAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContextPool<PlayerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PlayerContextConnectionString")));
+            services.AddDbContextPool<ApiContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PlayerContextConnectionString")));
             
             /* Mock data setup */
             //services.AddSingleton<IPlayerData, MockPlayerData>();

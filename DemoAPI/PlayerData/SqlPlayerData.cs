@@ -8,9 +8,9 @@ namespace DemoAPI.PlayerData
 {
     public class SqlPlayerData : IPlayerData
     {
-        private PlayerContext _playerContext;
+        private ApiContext _playerContext;
 
-        public SqlPlayerData(PlayerContext playerContext)
+        public SqlPlayerData(ApiContext playerContext)
         {
             _playerContext = playerContext;
         }
