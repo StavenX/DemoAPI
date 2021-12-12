@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DemoAPI.Extensions
+namespace DemoAPI.Helpers
 {
     public static class DateTimeHelpers
     {
@@ -14,7 +14,7 @@ namespace DemoAPI.Extensions
                 firstMonday = firstMonday.AddDays(1);
             }
 
-            return firstMonday; 
+            return firstMonday;
         }
 
         public static DateTime GetFirstMondayOfWeek(int weekNumber)
@@ -31,14 +31,14 @@ namespace DemoAPI.Extensions
             var endDay = beginningDay.AddDays(7);
 
             var isAfterMonday = startTime >= beginningDay;
-            var isWithinSunday = endTime < endDay; 
+            var isWithinSunday = endTime < endDay;
 
             if (isAfterMonday && isWithinSunday)
             {
-                return true; 
+                return true;
             }
 
-            return false; 
+            return false;
         }
     }
 }

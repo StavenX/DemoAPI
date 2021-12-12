@@ -1,4 +1,4 @@
-using DemoAPI.Extensions;
+using DemoAPI.Helpers;
 using System;
 using Xunit;
 

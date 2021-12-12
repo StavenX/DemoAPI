@@ -1,12 +1,12 @@
 ﻿using DemoAPI.Extensions;
 using DemoAPI.Models;
-using DemoAPI.PlayerData;
-using DemoAPI.ScoreData;
+using DemoAPI.Repositories;
+using DemoAPI.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DemoAPI.Services
+namespace DemoAPI.Factories
 {
     public class ImpactReportFactory : IImpactReportFactory
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DemoAPI.PlayerData
+namespace DemoAPI.Repositories
 {
     public interface IPlayerRepository
     {

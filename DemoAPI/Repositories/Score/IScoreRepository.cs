@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DemoAPI.ScoreData
+namespace DemoAPI.Repositories
 {
     public interface IScoreRepository
     {

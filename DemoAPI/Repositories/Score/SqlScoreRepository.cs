@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DemoAPI.ScoreData
+namespace DemoAPI.Repositories
 {
     public class SqlScoreRepository : IScoreRepository
     {

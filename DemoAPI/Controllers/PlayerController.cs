@@ -1,6 +1,6 @@
-﻿using DemoAPI.Contracts;
+﻿using DemoAPI.Routes;
 using DemoAPI.Models;
-using DemoAPI.PlayerData;
+using DemoAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

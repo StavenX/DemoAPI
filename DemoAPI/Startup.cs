@@ -1,8 +1,8 @@
 using DemoAPI.Factories;
 using DemoAPI.Models;
-using DemoAPI.PlayerData;
-using DemoAPI.ScoreData;
-using DemoAPI.Services;
+using DemoAPI.Repositories;
+using DemoAPI.Repositories;
+using DemoAPI.Factories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

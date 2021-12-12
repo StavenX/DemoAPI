@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DemoAPI.Services
+namespace DemoAPI.Factories
 {
     public interface IImpactReportFactory
     {

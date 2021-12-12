@@ -1,5 +1,5 @@
-﻿using DemoAPI.Contracts;
-using DemoAPI.ScoreData;
+﻿using DemoAPI.Routes;
+using DemoAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

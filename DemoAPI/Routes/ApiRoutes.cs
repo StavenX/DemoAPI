@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DemoAPI.Contracts
+namespace DemoAPI.Routes
 {
     public static class ApiRoutes
     {
