@@ -9,12 +9,12 @@ namespace DemoAPI.Factories
 {
     public class WeeklySummaryFactory : IWeeklySummaryFactory
     {
-        private IPlayerData _playerData;
-        private IScoreData _scoreData;
+        private IPlayerRepository _playerData;
+        private IScoreRepository _scoreData;
 
         private readonly int WeeklyReportAmount = 10; 
 
-        public WeeklySummaryFactory(IPlayerData playerData, IScoreData scoreData)
+        public WeeklySummaryFactory(IPlayerRepository playerData, IScoreRepository scoreData)
         {
             _playerData = playerData;
             _scoreData = scoreData; 

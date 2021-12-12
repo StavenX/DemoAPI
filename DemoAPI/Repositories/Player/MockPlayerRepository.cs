@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DemoAPI.PlayerData
 {
-    public class MockPlayerData : IPlayerData
+    public class MockPlayerRepository : IPlayerRepository
     {
         private List<Player> players = new List<Player>()
         {

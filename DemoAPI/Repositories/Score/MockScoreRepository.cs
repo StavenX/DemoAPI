@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DemoAPI.ScoreData
 {
-    public class MockScoreData : IScoreData
+    public class MockScoreRepository : IScoreRepository
     {
         private List<Score> scores = new List<Score>()
         {

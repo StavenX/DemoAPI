@@ -10,10 +10,10 @@ namespace DemoAPI.Services
 {
     public class ImpactReportFactory : IImpactReportFactory
     {
-        private IScoreData _scoreData;
-        private IPlayerData _playerData;
+        private IScoreRepository _scoreData;
+        private IPlayerRepository _playerData;
 
-        public ImpactReportFactory(IPlayerData playerData, IScoreData scoreData)
+        public ImpactReportFactory(IPlayerRepository playerData, IScoreRepository scoreData)
         {
             _scoreData = scoreData;
             _playerData = playerData;

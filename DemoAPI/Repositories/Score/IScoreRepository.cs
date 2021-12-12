@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DemoAPI.ScoreData
 {
-    public interface IScoreData
+    public interface IScoreRepository
     {
         List<Score> GetScores();
         List<Score> GetScoresForPlayer(Guid id);

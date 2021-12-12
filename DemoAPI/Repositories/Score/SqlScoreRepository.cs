@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace DemoAPI.ScoreData
 {
-    public class SqlScoreData : IScoreData
+    public class SqlScoreRepository : IScoreRepository
     {
         private ApiContext _playerContext;
 
-        public SqlScoreData(ApiContext playerContext)
+        public SqlScoreRepository(ApiContext playerContext)
         {
             _playerContext = playerContext;
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DemoAPI.PlayerData
 {
-    public interface IPlayerData
+    public interface IPlayerRepository
     {
         List<Player> GetPlayers();
         Player GetPlayer(Guid id);

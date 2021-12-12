@@ -39,8 +39,8 @@ namespace DemoAPI
             //services.AddSingleton<IScoreData, MockScoreData>();
 
             /* Data setup */
-            services.AddScoped<IPlayerData, SqlPlayerData>();
-            services.AddScoped<IScoreData, SqlScoreData>();
+            services.AddScoped<IPlayerRepository, SqlPlayerRepository>();
+            services.AddScoped<IScoreRepository, SqlScoreRepository>();
 
             /* Factory setup */
             services.AddScoped<IImpactReportFactory, ImpactReportFactory>();

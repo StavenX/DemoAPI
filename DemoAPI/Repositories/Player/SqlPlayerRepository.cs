@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace DemoAPI.PlayerData
 {
-    public class SqlPlayerData : IPlayerData
+    public class SqlPlayerRepository : IPlayerRepository
     {
         private ApiContext _playerContext;
 
-        public SqlPlayerData(ApiContext playerContext)
+        public SqlPlayerRepository(ApiContext playerContext)
         {
             _playerContext = playerContext;
         }
@@ -18,6 +18,7 @@ namespace DemoAPI.PlayerData
             player.Id = Guid.NewGuid();
             _playerContext.Players.Add(player);
             _playerContext.SaveChanges();
+
             return player;
         }
 
@@ -37,6 +38,7 @@ namespace DemoAPI.PlayerData
                 _playerContext.Players.Update(existingPlayer);
                 _playerContext.SaveChanges();
             }
+
             return player;
         }
 

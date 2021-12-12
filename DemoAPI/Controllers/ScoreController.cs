@@ -9,9 +9,9 @@ namespace DemoAPI.Controllers
     [ApiController]
     public class ScoreController : ControllerBase
     {
-        private IScoreData _scoreData;
+        private IScoreRepository _scoreData;
 
-        public ScoreController(IScoreData scoreData)
+        public ScoreController(IScoreRepository scoreData)
         {
             _scoreData = scoreData;
         }

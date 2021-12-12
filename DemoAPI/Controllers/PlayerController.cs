@@ -10,9 +10,9 @@ namespace DemoAPI.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
-        private IPlayerData _playerData; 
+        private IPlayerRepository _playerData; 
 
-        public PlayerController(IPlayerData playerData)
+        public PlayerController(IPlayerRepository playerData)
         {
             _playerData = playerData;
         }
