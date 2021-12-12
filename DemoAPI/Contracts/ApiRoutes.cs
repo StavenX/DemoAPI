@@ -32,7 +32,7 @@ namespace DemoAPI.Contracts
 
         public static class ImpactReports
         {
-            public const string GetImpacts = "api/impactreport/reports";
+            public const string GetImpacts   = "api/impactreport/reports";
         }
     }
 }

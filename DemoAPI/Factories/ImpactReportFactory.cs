@@ -37,11 +37,14 @@ namespace DemoAPI.Services
         public ImpactReport GetImpactReportForPlayer(Guid playerId)
         {
             var player = _playerData.GetPlayer(playerId);
-            var playerScores = _scoreData.GetScoresForPlayer(playerId);
 
+            var playerScores = _scoreData.GetScoresForPlayer(playerId);
             var totalScoreSum = playerScores.Sum(x => x.ScoreValue);
             var totalPlaythroughSeconds = playerScores.Sum(x => (x.GetDurationSeconds()));
             var totalPlaythroughs = playerScores.Count;
+
+            var firstScore = playerScores.OrderBy(x => x.StartedPlaying).FirstOrDefault();
+            var bestScore = playerScores.OrderByDescending(x => x.ScoreValue).FirstOrDefault();
 
             var impactReport = new ImpactReport()
             {
@@ -51,6 +54,9 @@ namespace DemoAPI.Services
                 AmountPlayedSeconds = totalPlaythroughSeconds,
                 Playthroughs = totalPlaythroughs
             };
+
+            if (firstScore != null) impactReport.FirstScore = firstScore.ScoreValue;
+            if (bestScore != null) impactReport.BestScore = bestScore.ScoreValue;
 
             return impactReport;
         }

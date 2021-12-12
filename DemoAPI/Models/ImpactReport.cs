@@ -12,5 +12,7 @@ namespace DemoAPI.Models
         public double AmountPlayedSeconds { get; set; }
         public int Playthroughs { get; set; }
         public int TotalScore { get; set; }
+        public int FirstScore { get; set; }
+        public int BestScore { get; set; }
     }
 }
