@@ -41,7 +41,6 @@ namespace DemoAPI.Services
             var totalScoreSum = playerScores.Sum(x => x.ScoreValue);
             var totalPlaythroughSeconds = playerScores.Sum(x => (x.GetDurationSeconds()));
             var totalPlaythroughs = playerScores.Count;
-
             var firstScore = playerScores.OrderBy(x => x.StartedPlaying).FirstOrDefault();
             var bestScore = playerScores.OrderByDescending(x => x.ScoreValue).FirstOrDefault();
 
@@ -54,11 +53,12 @@ namespace DemoAPI.Services
                 Playthroughs = totalPlaythroughs
             };
 
-            if (firstScore != null) impactReport.FirstScore = firstScore.ScoreValue;
-            if (bestScore != null) impactReport.BestScore = bestScore.ScoreValue;
-
-            if (impactReport.FirstScore != 0 && impactReport.BestScore != 0)
+            /* Calculate how much this player has improved */
+            if (impactReport.Playthroughs > 0)
             {
+                impactReport.FirstScore = firstScore.ScoreValue;
+                impactReport.BestScore = bestScore.ScoreValue;
+
                 var change = bestScore.ScoreValue - firstScore.ScoreValue;
                 var improvedPercentage = ((double)change / firstScore.ScoreValue) * 100;
                 impactReport.ImprovedPercentage = improvedPercentage;
