@@ -32,15 +32,5 @@ namespace DemoAPI.Tests
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
-
-        [Fact]
-        public async Task GET_RetrievesAllScores_ResponseIsHttpOK()
-        {
-            var requestMessage = new HttpRequestMessage(ApiRoutes.Players.Add);
-            requestMessage.Content = new StringContent("{\"name\":\"John Doe\"}", Encoding.UTF8, "application/json");
-
-            var response = _client.SendAsync(requestMessage);
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        }
     }
 }
